@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Text = styled.h1`
@@ -8,7 +8,7 @@ const Text = styled.h1`
 `;
 
 const HeaderDiv = styled.div`
-  padding: 20px 50px;
+  margin: 50px 100px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: space-between;
@@ -19,12 +19,13 @@ const LinkDiv = styled.div`
   align-items: center;
 `;
 
-const StyledLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   color: blue;
-  padding: 30px;
+  margin: 30px;
   &:hover {
-    color: pink;
+    color: #e35e5e;
+    border-bottom: 2px solid #e35e5e;
   }
 `;
 
@@ -33,8 +34,26 @@ const Header = (props) => {
     <HeaderDiv>
       <Text>Fruit Emporium</Text>
       <LinkDiv>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
+        <StyledNavLink
+          exact
+          to="/"
+          activeStyle={{
+            color: "#E35E5E",
+            borderBottom: "2px solid #E35E5E",
+          }}
+        >
+          Home
+        </StyledNavLink>
+        <StyledNavLink
+          ecaxt
+          to="/about"
+          activeStyle={{
+            color: "#E35E5E",
+            borderBottom: "2px solid #E35E5E",
+          }}
+        >
+          About
+        </StyledNavLink>
       </LinkDiv>
     </HeaderDiv>
   );

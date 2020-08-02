@@ -1,26 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
-import { createGlobalStyle } from "styled-components";
+import Homepage from "./Homepage";
+import About from "./About";
+import ItemDetails from "./ItemDetails";
+import GlobalStyle from "./GlobalStyle";
 
 const App = (props) => {
   return (
-    <Router>
-      <div>
+    <>
+      <GlobalStyle />
+      <Router>
         <Header />
         <Switch>
           <Route exact path="/">
-            Homepage
+            <Homepage sellers={props.sellers} items={props.items} />
           </Route>
           <Route exact path="/about">
-            About
+            <About />
           </Route>
           <Route exact path="/items/:itemId">
-            Items
+            <ItemDetails />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </>
   );
 };
 
